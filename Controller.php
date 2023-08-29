@@ -18,9 +18,10 @@ class Controller extends \Piwik\Plugin\Controller
 {
     public function index() {
         Piwik::checkUserHasSuperUserAccess();
-        $lang = Common::getRequestVar("lang");
-        $returnModule = Common::getRequestVar("returnModule");
-        $returnAction = Common::getRequestVar("returnAction");
+        $request = \Piwik\Request::fromRequest();
+        $lang = $request->getStringParameter("lang");
+        $returnModule = $request->getStringParameter("returnModule");
+        $returnAction = $request->getStringParameter("returnAction");
         LanguagesManager::setLanguageForSession($lang);
         if (Version::VERSION == '4.7.1' || Version::VERSION == '4.7.0') {
             APILanguagesManager::getInstance()->setLanguageForUser(Piwik::getCurrentUserLogin(), $lang);

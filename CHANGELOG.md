@@ -1,5 +1,9 @@
 ## Changelog
 
+### 0.4.0
+
+Matomo 5 compatibility
+
 ### 0.3.6
 
 hide setting from non-superusers
